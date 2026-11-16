@@ -15,6 +15,18 @@ EnvDesk 是一个使用 Tauri 2、Rust 和 React 构建的本地环境配置管�
 
 应用界面目前为中文。
 
+## 下载
+
+从 [GitHub Releases](https://github.com/YangsonHung/envdesk/releases) 下载安装包：
+
+| 系统           | 安装包          |
+| -------------- | --------------- |
+| Apple 芯片 Mac | `aarch64.dmg`   |
+| Intel Mac      | `x64.dmg`       |
+| Windows x64    | `x64-setup.exe` |
+
+macOS 安装包使用临时签名，尚未经过 Apple 公证。如果 macOS 因无法验证开发者而拦截本次发布的应用，可在「系统设置 → 隐私与安全性」中选择「仍要打开」。Windows 安装包未签名，系统可能显示安全提示。
+
 ## 本地开发
 
 安装 Node.js、pnpm、Rust 1.90 或更新版本，以及[对应系统的 Tauri 构建依赖](https://v2.tauri.app/start/prerequisites/)。
@@ -35,6 +47,14 @@ pnpm tauri build --bundles app
 ```
 
 构建完成后，应用位于 `src-tauri/target/release/bundle/macos/`。
+
+在 Windows 上构建 Windows x64 安装包：
+
+```bash
+pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
+```
+
+安装包输出到 `src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/`。维护者也可以运行 [Windows 发布工作流](.github/workflows/release-windows.yml)，指定已有 Release 的标签；工作流会构建该标签的代码，并将安装包上传到对应 Release。
 
 ## 使用
 

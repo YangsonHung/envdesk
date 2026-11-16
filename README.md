@@ -15,6 +15,18 @@ EnvDesk is a local environment configuration manager built with Tauri 2, Rust, a
 
 The application interface is currently in Chinese.
 
+## Downloads
+
+Download an installer from [GitHub Releases](https://github.com/YangsonHung/envdesk/releases):
+
+| System                 | Package         |
+| ---------------------- | --------------- |
+| macOS on Apple Silicon | `aarch64.dmg`   |
+| macOS on Intel         | `x64.dmg`       |
+| Windows x64            | `x64-setup.exe` |
+
+The macOS packages use ad-hoc signatures and are not notarized. If macOS blocks an app from this release because the developer cannot be verified, open System Settings > Privacy & Security and select Open Anyway. Windows installers are unsigned and may show a security warning.
+
 ## Local development
 
 Install Node.js, pnpm, Rust 1.90 or later, and the [Tauri prerequisites for your platform](https://v2.tauri.app/start/prerequisites/).
@@ -35,6 +47,14 @@ pnpm tauri build --bundles app
 ```
 
 The application bundle is written to `src-tauri/target/release/bundle/macos/`.
+
+Build a Windows x64 installer on Windows:
+
+```bash
+pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
+```
+
+The installer is written to `src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/`. Maintainers can also run the [Windows release workflow](.github/workflows/release-windows.yml) with an existing release tag; it builds that tag and uploads the installer to the matching release.
 
 ## Usage
 
