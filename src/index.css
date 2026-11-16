@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--surface-muted);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--surface-muted);
+  --color-muted-foreground: var(--muted);
+  --color-accent: var(--hover);
+  --color-accent-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input-border);
+  --color-ring: var(--primary);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+}
+
+:root {
+  color-scheme: light;
+  --background: #f5f6f8;
+  --surface: #fcfcfd;
+  --surface-muted: #eef0f4;
+  --sidebar: #f0f2f5;
+  --foreground: #242932;
+  --muted: #626c7c;
+  --border: #dce1e8;
+  --input-border: #818c9d;
+  --hover: #e6eaf0;
+  --primary: #245cce;
+  --primary-foreground: #fafbff;
+  --selected: #e2ebfc;
+  --selected-foreground: #204fa7;
+  --destructive: #b33040;
+  --error-surface: #fcf0f2;
+  --error-border: #e9bac1;
+  --warning: #865911;
+  --warning-surface: #fbf2de;
+  --overlay: rgb(23 30 43 / 34%);
+  --dialog-shadow: 0 16px 64px rgb(29 42 64 / 16%);
+  --font-mono:
+    ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
+  /* App chrome: 10. Popover: 20. Dialog overlay: 40. Dialog content: 50. */
+  --z-chrome: 10;
+  --z-popover: 20;
+  --z-overlay: 40;
+  --z-dialog: 50;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #191c22;
+  --surface: #20242c;
+  --surface-muted: #292e38;
+  --sidebar: #1c1f26;
+  --foreground: #e3e7ef;
+  --muted: #a1aaba;
+  --border: #353c48;
+  --input-border: #687488;
+  --hover: #303744;
+  --primary: #92b7ff;
+  --primary-foreground: #152344;
+  --selected: #283955;
+  --selected-foreground: #b6ceff;
+  --destructive: #ff9da7;
+  --error-surface: #38272e;
+  --error-border: #85525e;
+  --warning: #eac580;
+  --warning-surface: #3b3224;
+  --overlay: rgb(10 13 20 / 64%);
+  --dialog-shadow: 0 16px 64px rgb(8 12 20 / 40%);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus {
+  outline: none;
+}
+::selection {
+  color: var(--selected-foreground);
+  background: var(--selected);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--input-border) transparent;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
