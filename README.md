@@ -15,17 +15,37 @@ EnvDesk is a local environment configuration manager built with Tauri 2, Rust, a
 
 The application interface is currently in Chinese.
 
-## Downloads
+## Installation
 
-Download an installer from [GitHub Releases](https://github.com/YangsonHung/envdesk/releases):
+### macOS
 
-| System                 | Package         |
-| ---------------------- | --------------- |
-| macOS on Apple Silicon | `aarch64.dmg`   |
-| macOS on Intel         | `x64.dmg`       |
-| Windows x64            | `x64-setup.exe` |
+Install with [Homebrew](https://brew.sh/):
 
-The macOS packages use ad-hoc signatures and are not notarized. If macOS blocks an app from this release because the developer cannot be verified, open System Settings > Privacy & Security and select Open Anyway. Windows installers are unsigned and may show a security warning.
+```bash
+brew install --cask yangsonhung/tap/envdesk
+```
+
+Homebrew selects the package for your Mac and verifies its checksum. The cask removes the quarantine flag from `EnvDesk.app` after installation; this release is ad-hoc signed and not notarized by Apple.
+
+Alternatively, download a DMG below and drag `EnvDesk.app` to Applications:
+
+> [!WARNING]
+> When installing the DMG manually, macOS may report that “EnvDesk.app is damaged and can't be opened.” This can be caused by macOS blocking this unnotarized release.
+>
+> After confirming that the download matches the [release checksums](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/SHA256SUMS), remove the quarantine flag from this app:
+>
+> ```bash
+> xattr -dr com.apple.quarantine "/Applications/EnvDesk.app"
+> ```
+
+| Architecture            | Download                                                                                         |
+| ----------------------- | ------------------------------------------------------------------------------------------------ |
+| Apple Silicon (aarch64) | [DMG](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_aarch64.dmg) |
+| Intel (x86_64)          | [DMG](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_x64.dmg)     |
+
+### Windows
+
+Download and run the [Windows x64 installer](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_x64-setup.exe). The installer is unsigned and may show a system security warning.
 
 ## Local development
 

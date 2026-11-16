@@ -15,17 +15,37 @@ EnvDesk 是一个使用 Tauri 2、Rust 和 React 构建的本地环境配置管�
 
 应用界面目前为中文。
 
-## 下载
+## 安装
 
-从 [GitHub Releases](https://github.com/YangsonHung/envdesk/releases) 下载安装包：
+### macOS
 
-| 系统           | 安装包          |
-| -------------- | --------------- |
-| Apple 芯片 Mac | `aarch64.dmg`   |
-| Intel Mac      | `x64.dmg`       |
-| Windows x64    | `x64-setup.exe` |
+通过 [Homebrew](https://brew.sh/) 安装：
 
-macOS 安装包使用临时签名，尚未经过 Apple 公证。如果 macOS 因无法验证开发者而拦截本次发布的应用，可在「系统设置 → 隐私与安全性」中选择「仍要打开」。Windows 安装包未签名，系统可能显示安全提示。
+```bash
+brew install --cask yangsonhung/tap/envdesk
+```
+
+Homebrew 会为你的 Mac 选择对应安装包并校验文件。安装后，Cask 会移除 `EnvDesk.app` 的下载隔离标记；当前版本使用临时签名，尚未经过 Apple 公证。
+
+也可以下载下方的 DMG，将 `EnvDesk.app` 拖入「应用程序」：
+
+> [!WARNING]
+> 手动安装 DMG 后，macOS 可能提示「EnvDesk.app 已损坏，无法打开」。这可能是系统拦截未经公证的应用导致的。
+>
+> 确认下载文件与 [Release 校验值](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/SHA256SUMS) 一致后，可执行以下命令移除这个应用的下载隔离标记：
+>
+> ```bash
+> xattr -dr com.apple.quarantine "/Applications/EnvDesk.app"
+> ```
+
+| 芯片架构              | 下载                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------------ |
+| Apple 芯片（aarch64） | [DMG](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_aarch64.dmg) |
+| Intel（x86_64）       | [DMG](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_x64.dmg)     |
+
+### Windows
+
+下载并运行 [Windows x64 安装程序](https://github.com/YangsonHung/envdesk/releases/download/v0.1.0/EnvDesk_0.1.0_x64-setup.exe)。安装包未签名，系统可能显示安全提示。
 
 ## 本地开发
 
